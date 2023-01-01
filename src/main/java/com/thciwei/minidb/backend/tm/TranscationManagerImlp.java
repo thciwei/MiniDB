@@ -89,6 +89,11 @@ public class TranscationManagerImlp implements TranscationManager {
         }
     }
 
+    /**
+     * 确定事务状态字段存储的位置
+     * 超级事务0 不需要被记录，从1开始
+     * @param XID
+     */
     private long getXIDPosition(long XID) {
         //数组寻址公式a[i]_address = base_address + i * data_type_size,从1开始使用 (i-1) * data_type_size
         return LEN_XID_HEADER_LENGTH + (XID - 1) * XID_FIELD_SIZE;

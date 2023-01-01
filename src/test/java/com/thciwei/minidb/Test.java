@@ -6,5 +6,9 @@ package com.thciwei.minidb;
  */
 
 public class Test {
+    @org.junit.Test
+    public void hello() {
+
+    }
 
 }
