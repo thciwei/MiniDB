@@ -3,7 +3,7 @@ package com.thciwei.minidb.common;
 /**
  * @author thciwei
  * @email qiaosong.wang@foxmail.com
- * 全局异常定义
+ * 全局异常处理
  */
 public class Error {
     public static final Exception CacheFullException = new RuntimeException("Cache is full!");
