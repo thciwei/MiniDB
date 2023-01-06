@@ -18,6 +18,9 @@ public interface Logger {
 
     byte[] next();
 
+    /**
+     * 用于跳过[XChecksum]直接进入[log..]
+     */
     void rewind();
 
     void close();

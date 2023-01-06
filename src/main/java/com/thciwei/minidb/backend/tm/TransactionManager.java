@@ -13,7 +13,7 @@ import java.nio.channels.FileChannel;
 /**
  * 事务管理接口
  */
-public interface TranscationManager {
+public interface TransactionManager {
     /**
      * 基本操作
      *
@@ -42,9 +42,9 @@ public interface TranscationManager {
     /**
      * @param path 创建一个以.xid为结尾的文件
      */
-    public static TranscationManagerImlp create(String path) {
+    public static TransactionManagerImpl create(String path) {
 
-        File file = new File(path + TranscationManagerImlp.XID_SUFFIX);
+        File file = new File(path + TransactionManagerImpl.XID_SUFFIX);
         try {
             if (!file.createNewFile()) {
                 Panic.panic(Error.FileExistsException);
@@ -66,7 +66,7 @@ public interface TranscationManager {
             Panic.panic(e);
         }
 
-        ByteBuffer buffer = ByteBuffer.wrap(new byte[TranscationManagerImlp.LEN_XID_HEADER_LENGTH]);
+        ByteBuffer buffer = ByteBuffer.wrap(new byte[TransactionManagerImpl.LEN_XID_HEADER_LENGTH]);
 
         try {
             //写一个xid空文件头，长度8字节
@@ -76,12 +76,12 @@ public interface TranscationManager {
             Panic.panic(e);
         }
 
-        return new TranscationManagerImlp(raf, fc);
+        return new TransactionManagerImpl(raf, fc);
 
     }
 
-    public static TranscationManagerImlp open(String path) {
-        File file = new File(path + TranscationManagerImlp.XID_SUFFIX);
+    public static TransactionManagerImpl open(String path) {
+        File file = new File(path + TransactionManagerImpl.XID_SUFFIX);
         if (!file.exists()) {
             Panic.panic(Error.FileNotExistsException);
         }
@@ -97,7 +97,7 @@ public interface TranscationManager {
         } catch (FileNotFoundException e) {
             Panic.panic(e);
         }
-        return new TranscationManagerImlp(raf, fc);
+        return new TransactionManagerImpl(raf, fc);
 
     }
 

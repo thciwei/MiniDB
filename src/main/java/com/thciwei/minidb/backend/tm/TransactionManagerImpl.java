@@ -16,9 +16,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * @email qiaosong.wang@foxmail.com
  */
 
-public class TranscationManagerImlp implements TranscationManager {
+public class TransactionManagerImpl implements TransactionManager {
 
     /**
+     * XID代表事务ID，遵循 MySQL的命名方式
      * XID是对事务的一个唯一标识(名字任意),从1开始,之后数组内存寻址也是如此
      * 可以结合接口的create来看
      */
@@ -51,7 +52,7 @@ public class TranscationManagerImlp implements TranscationManager {
     //NIO 通道，数据传输
     private FileChannel fc;
 
-    TranscationManagerImlp(RandomAccessFile raf, FileChannel fc) {
+    TransactionManagerImpl(RandomAccessFile raf, FileChannel fc) {
         this.file = raf;
         this.fc = fc;
         counterLock = new ReentrantLock();

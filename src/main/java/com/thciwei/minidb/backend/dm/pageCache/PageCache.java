@@ -15,6 +15,9 @@ public interface PageCache {
 
     void release(Page page);
 
+    /**
+     * 线程安全的获得当前打开文件的页数
+     */
     void truncateByBgno(int maxPgno);
 
     int getPageNumber();

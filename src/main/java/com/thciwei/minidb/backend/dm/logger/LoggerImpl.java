@@ -190,6 +190,7 @@ public class LoggerImpl implements Logger {
         ByteBuffer tmp = ByteBuffer.allocate(4);
         try {
             fc.position(position);
+            //读完position移动到4
             fc.read(tmp);
         } catch (IOException e) {
             Panic.panic(e);
@@ -198,7 +199,7 @@ public class LoggerImpl implements Logger {
         if (position + size + OF_DATA > fileSize) {
             return null;
         }
-        //2读取checksum+data 4+4+4
+        //2读取checksum+data 4+4+4  从4开始
         ByteBuffer buffer = ByteBuffer.allocate(OF_DATA + size);
         try {
             fc.position(position);

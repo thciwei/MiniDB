@@ -27,10 +27,10 @@ public class PageX {
     }
 
     /**
-     * 普通页管理setFSO和getFSO
+     * 普通页管理
      */
     private static void setFSO(byte[] raw, short ofData) {
-        //从0-1，长2
+        //从0-1，长度2
         System.arraycopy(Parser.short2Byte(ofData), 0, raw, OF_FREE, OF_DATA);
     }
 

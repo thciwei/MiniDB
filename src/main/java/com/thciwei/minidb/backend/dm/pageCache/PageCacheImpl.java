@@ -118,6 +118,7 @@ public class PageCacheImpl extends AbstractCache<Page> implements PageCache {
     @Override
     public void truncateByBgno(int maxPgno) {
 
+
     }
 
     @Override
