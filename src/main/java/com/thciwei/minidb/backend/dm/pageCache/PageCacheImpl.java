@@ -37,7 +37,7 @@ public class PageCacheImpl extends AbstractCache<Page> implements PageCache {
      */
     PageCacheImpl(RandomAccessFile file, FileChannel fileChannel, int maxResource) {
         super(maxResource);
-        if(maxResource < MEM_MIN_LIM) {
+        if (maxResource < MEM_MIN_LIM) {
             Panic.panic(Error.MemTooSmallException);
         }
         long length = 0;
@@ -49,7 +49,7 @@ public class PageCacheImpl extends AbstractCache<Page> implements PageCache {
         this.file = file;
         this.fc = fileChannel;
         this.fileLock = new ReentrantLock();
-        this.pageNumbers = new AtomicInteger((int)length / PAGE_SIZE);
+        this.pageNumbers = new AtomicInteger((int) length / PAGE_SIZE);
     }
 
 
@@ -73,6 +73,9 @@ public class PageCacheImpl extends AbstractCache<Page> implements PageCache {
         return new PageImpl(pgno, buffer.array(), this);
     }
 
+    /**
+     * 定位position
+     */
     private static long pageOffset(int pgno) {
         //页码从1开始
         return (pgno - 1) * PAGE_SIZE;
@@ -118,33 +121,47 @@ public class PageCacheImpl extends AbstractCache<Page> implements PageCache {
 
     @Override
     public Page getPage(int pgno) throws Exception {
-        return null;
+        return get((long) pgno);
     }
 
+    /**
+     * 关闭通道
+     */
     @Override
     public void close() {
-
+        super.close();
+        try {
+            fc.close();
+            file.close();
+        } catch (IOException e) {
+            Panic.panic(e);
+        }
     }
 
     @Override
     public void release(Page page) {
-
+        release((long) page.getPageNumber());
     }
 
     @Override
     public void truncateByBgno(int maxPgno) {
-
-
+        long size = pageOffset(maxPgno + 1);
+        try {
+            file.setLength(size);
+        } catch (IOException e) {
+            Panic.panic(e);
+        }
+        pageNumbers.set(maxPgno);
     }
 
     @Override
     public int getPageNumber() {
-        return 0;
+        return pageNumbers.intValue();
     }
 
     @Override
     public void flushPage(Page pg) {
-
+        flush(pg);
     }
 
 

@@ -24,16 +24,18 @@ public interface DataManager {
         dm.initPageOne();
         return dm;
     }
-    public  static DataManager open(String path,long mem,TransactionManager tm){
+
+    public static DataManager open(String path, long mem, TransactionManager tm) {
         PageCache pc = PageCache.open(path, mem);
         Logger lg = Logger.open(path);
         DataManagerImpl dm = new DataManagerImpl(pc, lg, tm);
-        if(!dm.loadCheckPageOne()){
-            Recover.recover(tm,lg,pc);
+        if (!dm.loadCheckPageOne()) {
+            Recover.recover(tm, lg, pc);
         }
         dm.fillPageIndex();
         PageOne.setVcOpen(dm.pageOne);
         dm.pc.flushPage(dm.pageOne);
+        return dm;
     }
 
 
