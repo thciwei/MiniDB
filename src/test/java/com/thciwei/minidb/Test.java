@@ -18,6 +18,11 @@ public class Test {
         System.out.println(1L << 32);//2的32次方，000000....00001 左移100....0000，4294967296= 4GB=2的32B
         System.out.println(3L&4294967296L);
         System.out.println(3L&4294967295L);
+        System.out.println((1 << 63) - 1 + (1 << 63));
+        System.out.println(4294967296L>>>32);
+        //int pg;
+        //pg=2;
+        //assert pg==1;
     }
 
 

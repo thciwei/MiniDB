@@ -8,16 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c503a3de-21f3-4cae-b41f-b523a92ddce4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/Recover.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/DataManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/DataManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/dataItem/DataItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/dataItem/DataItemImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/pageIndex/PageIndex.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/pageIndex/PageInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/utils/Types.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/logger/Logger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/logger/Logger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/logger/LoggerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/logger/LoggerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/page/PageOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/page/PageOne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/common/SubArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/common/SubArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/Recover.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/Recover.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/page/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/page/Page.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/page/PageX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/page/PageX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/pageCache/PageCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/pageCache/PageCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/pageCache/PageCacheImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/dm/pageCache/PageCacheImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tm/TranscationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tm/TransactionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tm/TranscationManagerImlp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tm/TransactionManagerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/thciwei/minidb/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/thciwei/minidb/Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +64,9 @@
         <option name="workspaceImportEnabled" value="true" />
       </MavenImportingSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2JfZ4zD4ztH0IIhf69Zfo8AZGzX" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -145,7 +152,7 @@
       <workItem from="1672748703438" duration="16390000" />
       <workItem from="1672881445155" duration="67000" />
       <workItem from="1672881532173" duration="95000" />
-      <workItem from="1673009171671" duration="7563000" />
+      <workItem from="1673009171671" duration="22865000" />
     </task>
     <task id="LOCAL-00001" summary="maven工程初始化">
       <created>1672471078879</created>
@@ -196,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672814362688</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat:编写日志恢复策略、第一页、普通页(都未完全完成)">
+      <created>1673016990775</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673016990775</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +238,8 @@
     <MESSAGE value="feat:完成了数据页的缓存" />
     <MESSAGE value="feat:完成了第一页和普通页的管理" />
     <MESSAGE value="feat:完成了日志Logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:完成了日志Logger" />
+    <MESSAGE value="feat:编写日志恢复策略、第一页、普通页(都未完全完成)" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:编写日志恢复策略、第一页、普通页(都未完全完成)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -15,6 +15,10 @@ import java.util.Arrays;
 public class PageX {
     private static final short OF_FREE = 0;
     private static final short OF_DATA = 2;
+    /**
+     * 空闲空间=页大小-初始占的2字节
+     */
+    public static final int MAX_FREE_SPACE = PageCache.PAGE_SIZE - OF_DATA;
 
     // 向页面插入数据，将raw插入pg中，返回插入位置
     public static short insert(Page pg, byte[] raw) {
@@ -36,6 +40,10 @@ public class PageX {
 
     private static short getFSO(byte[] raw) {
         return Parser.parseShort(Arrays.copyOfRange(raw, 0, 2));
+    }
+    // 获取页的FSO
+    public static short getFSO(Page pg) {
+        return getFSO(pg.getData());
     }
 
     /**
@@ -66,4 +74,9 @@ public class PageX {
         System.arraycopy(raw, 0, pg.getData(), offset, raw.length);
     }
 
+    public static byte[] initRaw() {
+        byte[] raw = new byte[PageCache.PAGE_SIZE];
+        setFSO(raw, OF_DATA);
+        return raw;
+    }
 }

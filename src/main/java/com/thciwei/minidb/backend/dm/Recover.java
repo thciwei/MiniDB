@@ -1,5 +1,8 @@
 package com.thciwei.minidb.backend.dm;
 
+import com.google.common.primitives.Bytes;
+import com.thciwei.minidb.backend.common.SubArray;
+import com.thciwei.minidb.backend.dm.dataItem.DataItem;
 import com.thciwei.minidb.backend.dm.logger.Logger;
 import com.thciwei.minidb.backend.dm.page.Page;
 import com.thciwei.minidb.backend.dm.page.PageX;
@@ -22,6 +25,7 @@ public class Recover {
 
     private static final int REDO = 0;
     private static final int UNDO = 1;
+
 
     /**
      * 写入日志类
@@ -104,6 +108,16 @@ public class Recover {
             }
         }
 
+    }
+
+    public static byte[] UpdateLog(long xid, DataItem di) {
+        byte[] logType = {LOG_TYPE_UPDATE};
+        byte[] xidRaw = Parser.long2Byte(xid);
+        byte[] uidRaw = Parser.long2Byte(di.getUid());
+        byte[] oldRaw = di.getOldRaw();
+        SubArray raw = di.getRaw();
+        byte[] newRaw = Arrays.copyOfRange(raw.raw, raw.start, raw.end);
+        return Bytes.concat(logType, xidRaw, uidRaw, oldRaw, newRaw);
     }
 
     private static UpdateLogInfo parseUpdateLog(byte[] log) {
@@ -224,6 +238,17 @@ public class Recover {
         }
         page.release();
 
+    }
+
+    /**
+     * 封装日志结构
+     */
+    public static byte[] insertLog(long xid, Page pg, byte[] raw) {
+        byte[] logTypeRaw = {LOG_TYPE_INSERT};
+        byte[] xidRaw = Parser.long2Byte(xid);
+        byte[] pgnoRaw = Parser.int2Byte(pg.getPageNumber());
+        byte[] offsetRaw = Parser.short2Byte(PageX.getFSO(pg));
+        return Bytes.concat(logTypeRaw, xidRaw, pgnoRaw, offsetRaw, raw);
     }
 
     /**

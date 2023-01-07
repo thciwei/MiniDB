@@ -34,7 +34,7 @@ public class PageOne {
     /**
      * 启动时设置初始字节
      */
-    private static void setVcOpen(Page pg) {
+    public static void setVcOpen(Page pg) {
         pg.setDirty(true);
         setVcOpen(pg.getData());
     }
