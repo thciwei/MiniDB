@@ -71,27 +71,33 @@ public class DataItemImpl implements DataItem {
 
     @Override
     public void release() {
-     dm.releaseDataItem(this);
+        dm.releaseDataItem(this);
     }
 
+    /**
+     * 写锁 方法
+     */
     @Override
     public void lock() {
-
+        wLock.lock();
     }
 
     @Override
     public void unlock() {
-
+        wLock.unlock();
     }
 
+    /**
+     * 读锁方法
+     */
     @Override
     public void rLock() {
-
+        rLock.lock();
     }
 
     @Override
     public void rUnLock() {
-
+        rLock.unlock();
     }
 
     @Override
@@ -113,4 +119,8 @@ public class DataItemImpl implements DataItem {
     public SubArray getRaw() {
         return null;
     }
+
+
+
+
 }

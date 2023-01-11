@@ -40,9 +40,9 @@ public class TransactionManagerImpl implements TransactionManager {
     //回滚
     private static final byte FIELD_TRAN_ABORTED = 2;
     /**
-     * 超级事务，判断时优先级最高，永远是commited状态,没有申请事务时XID为0
+     * 超级事务，判断时优先级最高，永远是commited状态,没有申请事务时XID默认为0
      */
-    private static final long SUPER_XID = 0;
+    public static final long SUPER_XID = 0;
 
 
     private Lock counterLock;

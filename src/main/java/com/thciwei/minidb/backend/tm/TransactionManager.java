@@ -40,7 +40,7 @@ public interface TransactionManager {
     void close();                       // 关闭TM
 
     /**
-     * @param path 创建一个以.xid为结尾的文件
+     * 创建一个以.xid为结尾的文件
      */
     public static TransactionManagerImpl create(String path) {
 
