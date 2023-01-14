@@ -161,7 +161,7 @@ public class Field {
         int shift;
     }
 
-    public ParseValueRes parseValueRes(byte[] raw) {
+    public ParseValueRes parserValue(byte[] raw) {
         ParseValueRes res = new ParseValueRes();
         switch (fieldType) {
             case "int32":
@@ -232,6 +232,8 @@ public class Field {
         }
         return res;
     }
+
+
 
 
 }

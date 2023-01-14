@@ -11,5 +11,5 @@ public class Where {
      * 大于小于等于
      */
     public String logicOp;
-    public SingleExpression getSingleExp2;
+    public SingleExpression singleExp2;
 }

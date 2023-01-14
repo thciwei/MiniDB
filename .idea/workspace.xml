@@ -8,15 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c503a3de-21f3-4cae-b41f-b523a92ddce4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/Field.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/FieldCalRes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/Table.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/TableManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/TableManagerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/utils/ParseStringRes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/Booter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/utils/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/utils/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/thciwei/minidb/backend/parser/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/thciwei/minidb/backend/parser/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/parser/statement/Where.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/parser/statement/Where.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/thciwei/minidb/backend/tbm/Table.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +163,7 @@
       <workItem from="1672748703438" duration="16390000" />
       <workItem from="1672881445155" duration="67000" />
       <workItem from="1672881532173" duration="95000" />
-      <workItem from="1673009171671" duration="86238000" />
+      <workItem from="1673009171671" duration="97883000" />
     </task>
     <task id="LOCAL-00001" summary="maven工程初始化">
       <created>1672471078879</created>
@@ -260,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673662719593</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="feat:完成了table manager的字段设计">
+      <created>1673690531578</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1673690531578</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +297,8 @@
     <MESSAGE value="feat:完成了VersionManager，首先完成对entry和transaction的抽象，之后完成了LockTable死锁检测和事务可见性检测" />
     <MESSAGE value="feat:完成了B+树" />
     <MESSAGE value="feat:完成了sql parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:完成了sql parser" />
+    <MESSAGE value="feat:完成了table manager的字段设计" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:完成了table manager的字段设计" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
