@@ -27,7 +27,7 @@ public class Server {
         this.tbm = tbm;
     }
 
-    public void start() throws IOException {
+    public void start()  {
         ServerSocket ss = null;
         try {
             ss = new ServerSocket(port);
