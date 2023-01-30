@@ -27,7 +27,7 @@ public class TransactionManagerImpl implements TransactionManager {
     static final int LEN_XID_HEADER_LENGTH = 8;
     //每个事务占用1个字节
     private static final int XID_FIELD_SIZE = 1;
-    static final String XID_SUFFIX = ".XID";
+    static final String XID_SUFFIX = ".xid";
     private long XID;
 
     /**
@@ -124,7 +124,7 @@ public class TransactionManagerImpl implements TransactionManager {
     }
 
     /**
-     * XID自增 1，更新XID文件头Header
+     * XID自增 1，更新XID文件头Header，说明增加了新事务
      */
     private void increaseXID() {
         XID++;
@@ -151,6 +151,7 @@ public class TransactionManagerImpl implements TransactionManager {
     /**
      * 开启一个事务，返回XID
      * 开启事务自动加锁，隔离
+     * 版本管理时会使用该方法
      */
     public long begin() {
         try {
